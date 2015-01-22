@@ -1,0 +1,274 @@
+
+
+
+.sizing-border{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -o-box-sizing: border-box;
+}
+.sizing-content{
+    box-sizing: content-box;
+    -web-box-sizing: content-box;
+    -o-box-sizing: content-box;
+}
+.border-radius(@radius){
+    border-radius: @radius;
+    -moz-border-radius: @radius;
+    -webkit-border-radius: @radius;
+    -o-border-radius: @radius;
+}
+.top-left-radius(@radius){
+    border-top-left-radius: @radius;
+    -moz-border-top-left-radius: @radius;
+    -webkit-border-top-left-radius: @radius;
+    -o-border-top-left-radius: @radius;
+}
+.bottom-left-radius(@radius){
+    border-bottom-left-radius: @radius;
+    -moz-border-bottom-left-radius: @radius;
+    -webkit-border-bottom-left-radius: @radius;
+    -o-border-bottom-left-radius: @radius;
+}
+.bottom-right-radius(@radius){
+    border-bottom-right-radius: @radius;
+    -moz-border-bottom-right-radius: @radius;
+    -webkit-border-bottom-right-radius: @radius;
+    -o-border-bottom-right-radius: @radius;
+}
+.top-right-radius(@radius){
+    border-top-right-radius: @radius;
+    -moz-border-top-right-radius: @radius;
+    -webkit-border-top-right-radius: @radius;
+    -o-border-border-top-right-radius: @radius;
+}
+
+.button(@padding:8px 15px, @color: #fff, @background: #f4f4f4, @radius:0){
+    padding: @padding;
+    color: @color;
+    background: @background;
+    .border-radius(@radius);
+}
+.padding(@t, @r){padding: @t @r;}
+.small{padding: 3px 5px;}
+
+.btn-primary{background: #009933;}
+.btn-gray{background: #cccccc;}
+.btn-ping{background: #f0047f;}
+
+/* menu */
+.vertical-menu(@width, @ul-bg: #f0047f, @child-w, @child-li-bg, @bn-w){     
+    width: @width; float: left; position: relative;      
+    ul{
+        background: @ul-bg;  
+        padding: 0 0 15px 0;
+        li{
+            padding: 0px 0px; 
+            .sizing-border;
+            a{
+                color: #fff; font-size: 15px;
+                padding: 8.8px 15px; display: block; margin: 0 15px;
+                border-bottom: 1px solid #f2f2f2;
+            }
+            cursor: pointer;
+            &:hover a{color: #0099cc;}
+            ul{
+                display: none;
+                position: absolute; top: 47px; right: -906px; z-index: 100;
+                width: 906px; height: 402px; padding: 0;
+                .sizing-border;
+                .list-child{
+                    float: left; width: @child-w; height: 100%;
+                    .sizing-border;
+                    background: @child-li-bg;
+                    li{
+                        padding: 0px 10px;
+                        border: none;
+                        a{
+                            margin: 0; padding: 0; border: none;
+                            padding: 8.8px 10px;
+                            border-bottom: 1px solid #fff;
+                        }
+                        &:hover{
+                            background: @ul-bg;
+                        }
+
+                    }
+                }
+                .menu-banner{
+                    float: right;
+                    width: @bn-w; height: 100%;
+                    background: #fff;
+                    img{
+                        height: 100%; width: 100%;
+                    }
+                }
+            }
+            &:hover{
+                background: @child-li-bg;
+            }
+            &:hover ul{
+                display: block;
+            }
+            &:hover ul li a{
+                color: #fff;
+            }
+        } 
+    }
+}
+.horizontal-menu(@bg, @padding, @bg-hv){
+    ul{
+        background: @bg;
+        li{
+            float: left; padding: @padding;
+            a{ 
+                color: #fff; font-size: 17px;
+            }
+            &:hover{
+                background: @bg-hv;
+            }
+        }
+        clear: both;
+    }
+}
+
+.ver-slide-bar(@li-width:220px, @li-height:65px, @bg: #fff, @padding:10px 15px){
+    position: absolute; top: 42px; right: 6px;
+    ul{
+        li{
+            width: @li-width; height: @li-height;
+            background: @bg; padding: @padding;
+            border-bottom: 1px solid #cccccc;
+            .sizing-border; clear: both;
+            position: relative;
+            a{
+                img{
+                    float: left;
+                    margin-right: 10px;
+                }
+                color: #000; font-size: 14px;
+                i{
+                    display: block;
+                }
+            }
+            .narrow{
+                display: none;
+                background: url(../source/slide/narrow.png);
+                position: absolute; top: 20px; left: -17px;
+                width: 17px; height: 20px;
+            }
+            &:hover{
+                background: #ededed;
+            }
+            &:hover .narrow{
+                display: block;
+            }
+        }
+        .active{
+            background: #ededed;
+            .narrow{
+                display: block;
+            }
+        }
+    }
+}
+.ver-slide(@width, @height){
+    width: @width; float: right;  position: relative; height: @height; overflow: hidden;
+    margin-bottom: 5px;
+    .slide-image{
+        width: 100%;
+        img{width: 100%; height: 100%;}
+        ul li{padding: 0; margin: 0;}
+    }
+    .slide-bar{
+        .ver-slide-bar;
+    }
+}
+
+.list-item-sidebar(@padding: 12px, @li-padding: 13px 0, @imgsize: 45px){
+    padding: @padding;
+    li{
+        padding: @li-padding;
+        img{float: left; height: @imgsize; width: @imgsize; margin-right: 20px;}
+        a{
+            font-size: 14px; color: #000; vertical-align: bottom;
+            &:hover{
+                color: #0066ff;
+            }
+        }
+        border-bottom: 1px solid#ebebeb;
+        clear: both;
+    }
+}
+.sidebar-box(@width: 228px, @title-h: 40px, @title-bg: #f0047f, @title-padding: 6px 17px){
+    width: @width; margin-top: 15px;
+    .bar-title{
+        height: @title-h; background: @title-bg;
+        .sizing-border;
+        a{
+            font-size: 17px; color: #fff; padding: @title-padding; display: inline-block;
+        }
+    }
+    ul{
+        border: 1px solid #cccccc;
+        border-top: none;
+    }
+    .featured-product{
+        .list-item-sidebar();
+    }
+    .list-partner{
+        li{
+            width: 110px;
+            float: left;
+            border-right: 1px solid#cccccc;
+            border-bottom: 1px solid#cccccc;
+            &:nth-child(2n){border-right: none;}
+            padding: 3px;
+            .sizing-border;
+            img{
+                width: 102px; height: 52px;
+            } 
+        }
+        overflow: hidden;
+    }
+}
+
+/* product */
+.list-product(@p-width, @p-height, @padding){
+    clear: both;
+    border-top: 1px solid #cccccc;
+    border-left: 1px solid #cccccc;
+    .product{
+        float: left;
+        width: @p-width; height: @p-height; padding: @padding;
+        border-right: 1px solid #cccccc;
+        border-bottom: 1px solid #cccccc;
+        .sizing-border;
+        img{
+            height: 220px; width: 100%;
+        }
+        h5{
+            a{color: #0099cc;}
+            text-align: center;
+            margin: 12px 0; display: block;
+        }
+        .price{
+            color: #ff0000; display: block;
+            .regular{
+                font-size: 14px; float: left;
+                text-decoration: line-through;
+            }
+            .sale{
+                float: right;
+                font-size: 17px;
+            }
+        }
+        .add-to-cart{
+            margin: 10px 0 0; clear: both;
+            a{
+                .button(5px 10px, #fff, #f0047f, 0);
+                display: block;text-align: center; font-size: 14px;
+            }
+        }
+    }
+}
+
